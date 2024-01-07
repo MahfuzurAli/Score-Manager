@@ -1,0 +1,49 @@
+@model SCOREgrp05.Models.But
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>But</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="butId" />
+            <div class="form-group">
+                <label asp-for="matchId" class="control-label">ID du Match</label>
+                <select asp-for="matchId" class="form-control" asp-items="ViewBag.matchId"></select>
+                <span asp-validation-for="matchId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="score" class="control-label">Score</label>
+                <input asp-for="score" class="form-control" />
+                <span asp-validation-for="score" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="temps" class="control-label">Temps</label>
+                <input asp-for="temps" class="form-control" />
+                <span asp-validation-for="temps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="joueur" class="control-label">Joueur</label>
+                <input asp-for="joueur" class="form-control" />
+                <span asp-validation-for="joueur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Sauvegarder" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

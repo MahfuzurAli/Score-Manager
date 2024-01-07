@@ -1,0 +1,68 @@
+@model SCOREgrp05.Models.Match
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Détails</h1>
+
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Équipe 1:
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.equipe1)
+        </dd>
+        <dt class = "col-sm-2">
+            Équipe 2: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.equipe2)
+        </dd>
+        <dt class = "col-sm-2">
+            Score présent: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.score)
+        </dd>
+        <dt class = "col-sm-2">
+            Temps total écoulé: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.temps)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.matchId">Éditer</a> |
+    <a asp-action="Index">Retour à la liste des match</a>
+</div>
+<br>
+<br>
+<h3>Buts</h3>
+<div>
+    <a asp-controller="Buts" asp-action="Create" asp-route-id="@Model?.matchId">Créer un nouveau but</a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Match</th>
+            <th>Score</th>
+            <th>Temps</th>
+            <th>Joueur</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var but in Model.but) {
+            <tr>
+                <td>(@but.matchId) : @Model.equipe1 vs @Model.equipe2</td>
+                <td>@but.score</td>
+                <td>@but.temps'</td>
+                <td>@but.joueur</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,48 @@
+@model SCOREgrp05.Models.Match
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Création</h1>
+
+<h4>Match</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="equipe1" class="control-label">Équipe 1</label>
+                <input asp-for="equipe1" class="form-control" />
+                <span asp-validation-for="equipe1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="equipe2" class="control-label">Équipe 2</label>
+                <input asp-for="equipe2" class="form-control" />
+                <span asp-validation-for="equipe2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="score" class="control-label">Score</label>
+                <input asp-for="score" class="form-control" value="0 - 0" />
+                <span asp-validation-for="score" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="temps" class="control-label">Temps</label>
+                <input asp-for="temps" class="form-control" value = "0"/>
+                <span asp-validation-for="temps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Créer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste des parties</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

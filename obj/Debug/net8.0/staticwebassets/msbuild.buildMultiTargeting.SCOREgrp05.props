@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SCOREgrp05.props" />
+</Project>

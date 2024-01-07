@@ -1,0 +1,42 @@
+@model SCOREgrp05.Models.But
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Détails</h1>
+
+<div>
+    <h4>But</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            ID du Match: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.match.matchId)
+        </dd>
+        <dt class = "col-sm-2">
+            Score: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.score)
+        </dd>
+        <dt class = "col-sm-2">
+            Temps: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.temps)
+        </dd>
+        <dt class = "col-sm-2">
+            Joueur: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.joueur)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.butId">Éditer</a> |
+    <a asp-action="Index">Retour à la liste des buts</a>
+</div>

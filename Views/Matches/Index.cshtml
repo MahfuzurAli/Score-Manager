@@ -1,0 +1,37 @@
+@model IEnumerable<SCOREgrp05.Models.Match>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Liste des parties</h1>
+
+<p>
+    <a asp-action="Create">Créer un nouveau match</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Équipe 1
+            </th>
+            <th>
+                Équipe 2
+            </th>
+            <th>
+                Score
+            </th>
+            <th>
+                Temps écoulé
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="matches">
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script src="~/js/IndexMatches.js"></script>
+}

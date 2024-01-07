@@ -1,0 +1,47 @@
+@model SCOREgrp05.Models.But
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Créer</h1>
+
+<h4>But</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="matchId" class="control-label">ID du Match</label>
+                <select asp-for="matchId" class ="form-control" asp-items="ViewBag.matchId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="score" class="control-label">Score</label>
+                <input asp-for="score" class="form-control" />
+                <span asp-validation-for="score" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="temps" class="control-label">Temps du but</label>
+                <input asp-for="temps" class="form-control" />
+                <span asp-validation-for="temps" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="joueur" class="control-label">Joueur</label>
+                <input asp-for="joueur" class="form-control" />
+                <span asp-validation-for="joueur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Créer" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Retour à la liste des buts</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

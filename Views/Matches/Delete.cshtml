@@ -1,0 +1,45 @@
+@model SCOREgrp05.Models.Match
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Supprimer</h1>
+
+<h3>Êtes-vous sûr vous voulez supprimer?</h3>
+<div>
+    <h4>Match</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Équipe 1: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.equipe1)
+        </dd>
+        <dt class = "col-sm-2">
+            Équipe 2: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.equipe2)
+        </dd>
+        <dt class = "col-sm-2">
+            Score: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.score)
+        </dd>
+        <dt class = "col-sm-2">
+            Temps: 
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.temps)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="matchId" />
+        <input type="submit" value="Supprimer" class="btn btn-danger" /> |
+        <a asp-action="Index">Retour à la liste des parties</a>
+    </form>
+</div>
